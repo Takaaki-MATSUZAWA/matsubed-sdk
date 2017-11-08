@@ -48,6 +48,8 @@ class GCC(mbedToolchain):
             self.flags["common"].append("-DMBED_RTOS_SINGLE_THREAD")
             self.flags["ld"].append("--specs=nano.specs")
 
+        self.flags["ld"].append("-u _printf_float")
+
         if target.core == "Cortex-M0+":
             cpu = "cortex-m0plus"
         elif target.core == "Cortex-M4F":
